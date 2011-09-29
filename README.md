@@ -2,7 +2,7 @@
 <img src="http://github.com/hij1nx/codesurgeon/raw/master/logo.png">
 
 ## Synopsis
-A library for precision code extraction. Hack, slash and stitch javascript code using node.
+A library for `precision code extraction`. Hack, slash and stitch javascript code using Node.js. Also performs code minification and obfuscation on the final product.
 
 ## Motivation
 If you have a lot of libraries and need to build distributions of different configurations. This is the tool for you. It doesn't require you to crap up your file with any special syntax it parses the AST to extract your functions.
