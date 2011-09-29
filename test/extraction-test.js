@@ -1,5 +1,5 @@
 var extraction = require('nodeunit').testCase;
-var Codesurgeon = require('../lib/filesurgeon').Codesurgeon;
+var Codesurgeon = require('../lib/codesurgeon').Codesurgeon;
 var vm = require('vm');
 
 module.exports = extraction({

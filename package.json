@@ -8,9 +8,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/hij1nx/filesurgeon.git" 
+    "url": "http://github.com/hij1nx/codesurgeon.git" 
   },
-  "keywords": ["build", "deploy", "devops"]
+  "keywords": ["build", "deploy", "devops"],
   "dependencies": {
     "uglify-js": "1.0.6"
   },
@@ -18,6 +18,6 @@
     "eyes": "0.1.x",
     "nodeunit": "0.5.x"
   },
-  "main": "./lib/filesurgeon",
+  "main": "./lib/codesurgeon",
   "engines": { "node": ">= 0.4.0" }
 }
