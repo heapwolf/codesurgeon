@@ -7,6 +7,9 @@ A library for precision code extraction. Hack, slash and stitch javascript code 
 ## Motivation
 If you have a lot of libraries and need to build distributions of different configurations. This is the tool for you. It doesn't require you to crap up your file with any special syntax it parses the AST to extract your functions.
 
+## Installation
+`npm install codesurgeon`
+
 ## Usage
 All writes are done synchronously, so you can chain them. Here are a few examples.
 
@@ -21,6 +24,10 @@ function funcC() { return 'C'; }
 Build Script
 
 ```js
+
+var Codesurgeon = require('codesurgeon').Codesurgeon;
+var surgeon = new Codesurgeon;
+
 surgeon
   .configure({ // lets add some configuration options!
     quiet: true, // how about you just not say anything for now
@@ -41,8 +48,6 @@ Destination File (uses my package.json to add a header and change the filename)
 
 function funcB() { return 'B'; }
 ```
-
-## License
 
 ## Licence
 (The MIT License)
