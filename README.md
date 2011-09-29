@@ -24,7 +24,7 @@ surgeon
     package: '../package.json' // an read my package.json
   })
   .read(__dirname + '/dummy.js') // add one or more files to analyze
-  .extract('B') // specify the functions we want
+  .extract('funcB') // specify the functions we want
   .write('write-test-output.js'); // write the file to disk
 ```
 
