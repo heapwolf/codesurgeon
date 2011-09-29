@@ -13,29 +13,18 @@ module.exports = write({
     callback();
   },
 
-  '1. Extract a method by `simple` name.': function (test) {
+  '1. Extract a method by `simple` name and write the contents to a new file.': function (test) {
     var surgeon = new Codesurgeon;
 
     var sandbox = {};
 
     surgeon
-
-      //
-      // if we want to see logging information or not.
-      //
-      .configure({ quiet: true })
-
-      //
-      // read one, or a couple of files
-      //
+      .configure({ 
+        quiet: true, 
+        package: '../package.json' 
+      })
       .read(__dirname + '/dummy.js')
-
-      //
-      // get one or more methods from the code that we've read in.
-      //
       .extract('test5')
-      
-      .package('../package.json')
       .write('write-test-output.js');
 
       console.log(surgeon.newfile)
