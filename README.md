@@ -54,9 +54,12 @@ function funcB() { return 'B'; }
 ### Constructor
 
 #### function Codesurgeon(options)
+
+```
 - `optons` {Object} a json object literal that can contain configuration options.
 - `optons:encoding` {String} the encoding that will be used to product the result.
 - `optons:quiet` {String} indicate how much logging you want Codesurgen to produce.
+```
 
 The constructor function provides an instance of the Codesurgen.
 
