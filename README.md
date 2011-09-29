@@ -1,3 +1,6 @@
+<br/>
+<img src="http://github.com/hij1nx/codesurgeon/raw/master/logo.png">
+
 ## Synopsis
 A library for precision code extraction. Hack, slash and stitch javascript code using node.
 
