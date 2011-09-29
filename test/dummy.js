@@ -21,6 +21,8 @@ NODEJITSU.B = function(a, b) {
   return a + b;
 };
 
+exports.hello = 'Hello, World.';
+
 
 test3 = 100;
 test4 = { test4A: 1 };
