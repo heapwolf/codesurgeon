@@ -12,12 +12,17 @@
   },
   "keywords": ["build", "deploy", "devops"],
   "dependencies": {
-    "uglify-js": "1.0.6"
+    "uglify-js": "1.0.6",
+    "traverse": "0.5.x"
   },
   "devDependencies": {
     "eyes": "0.1.x",
+    "colors": "0.5.x",
     "nodeunit": "0.5.x"
   },
   "main": "./lib/codesurgeon",
-  "engines": { "node": ">= 0.4.0" }
+  "engines": { "node": ">= 0.4.0" },
+  "scripts": {
+    "test": "nodeunit test/*-test.js"
+  }
 }
