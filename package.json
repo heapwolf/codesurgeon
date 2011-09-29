@@ -1,0 +1,23 @@
+{
+  "name": "codesurgeon",
+  "description": "Build JS files based on JS code extracted from files",
+  "version": "0.0.1",
+  "author": "Nodejitsu Inc <info@nodejitsu.com>",
+  "contributors": [
+    { "name": "Paolo Fragomeni", "email": "hij1nx@nodejitsu.com" }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/hij1nx/filesurgeon.git" 
+  },
+  "keywords": ["build", "deploy", "devops"]
+  "dependencies": {
+    "uglify-js": "1.0.6"
+  },
+  "devDependencies": {
+    "eyes": "0.1.x",
+    "nodeunit": "0.5.x"
+  },
+  "main": "./lib/filesurgeon",
+  "engines": { "node": ">= 0.4.0" }
+}
