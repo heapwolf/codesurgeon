@@ -45,7 +45,9 @@ module.exports = extraction({
   '2. Extract a method by dot notation.': function (test) {
     var surgeon = new Codesurgeon;
 
-    var sandbox = {};
+    var sandbox = {
+      NODEJITSU: {}
+    };
 
     surgeon
 
@@ -62,13 +64,14 @@ module.exports = extraction({
       //
       // get one or more methods from the code that we've read in.
       //
-      .extract('NODEJITSU.B');
+      .extract('NODEJITSU.B.prototype.p', 'NODEJITSU.B');
 
     vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
 
     test.ok(sandbox.NODEJITSU.B, 'The function was extracted and executed.')
+    test.ok(sandbox.NODEJITSU.B.prototype.p, 'The function was extracted and executed.')
 
-    test.expect(1);
+    test.expect(2);
     test.done();
   },
 

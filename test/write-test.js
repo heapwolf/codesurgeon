@@ -29,9 +29,9 @@ module.exports = write({
 
     var file = fs.readFileSync(surgeon.newfile, 'utf8');
     vm.runInNewContext(file, sandbox, 'sandbox.vm');
-    
+
     test.ok(sandbox.test5(), 'The function was extracted and executed.')
-    
+
     test.expect(1);
     test.done();
   },

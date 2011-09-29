@@ -21,6 +21,10 @@ NODEJITSU.B = function(a, b) {
   return a + b;
 };
 
+NODEJITSU.B.prototype.p = function() {
+  
+};
+
 exports.hello = 'Hello, World.';
 
 
