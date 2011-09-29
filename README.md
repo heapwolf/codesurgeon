@@ -28,9 +28,14 @@ surgeon
   .write('write-test-output.js'); // write the file to disk
 ```
 
-Destination File
+Destination File (uses my package.json to add a header and change the filename)
 
 ```js
+//
+// Generated on Thu Sep 29 2011 12:29:42 GMT-0400 (EDT) by Codesurgeon.
+// Version 0.0.2
+//
+
 function funcB() { return 'B'; }
 ```
 
