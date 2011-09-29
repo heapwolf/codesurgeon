@@ -109,7 +109,7 @@ Wraps the code in a closure.
 `methods` {...String} a series of strings that represent the methods that can be found in the code that has been read by the `read` method.
 ```
 
-specifies the methods to extract from the files that have been read.
+Specifies the methods to extract from the files that have been read. You can specify a simple variable or function name such as `myMethod` or you can be specific about the item you are looking for, e.g. `MyConstructor.prototype.foo`. This is helpful in the case where you have another method named `foo` that might occur beforehand, e.g. `OtherConstructor.prototype.foo`.
 
 #### function write(file)
 
