@@ -72,8 +72,7 @@ module.exports = extraction({
     test.done();
   },
 
-
-  '2. Add a single listener on a single event.': function (test) {
+  '3. Extract a variable.': function (test) {
     var surgeon = new Codesurgeon;
 
     var sandbox = {};
@@ -93,12 +92,12 @@ module.exports = extraction({
       //
       // get one or more methods from the code that we've read in.
       //
-      .extract('test5');
+      .extract('test1');
 
     vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
-    
-    test.ok(sandbox.test5(), 'The function was extracted and executed.')
-    
+
+    test.equal(sandbox.test1, 20, 'The variable was extracted and evaluated correctly.');
+
     test.expect(1);
     test.done();
   }
