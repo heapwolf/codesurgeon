@@ -1,6 +1,7 @@
 var write = require('nodeunit').testCase;
 var Codesurgeon = require('../lib/codesurgeon').Codesurgeon;
 var vm = require('vm');
+var fs = require('fs');
 
 module.exports = write({
 
@@ -37,11 +38,14 @@ module.exports = write({
       .package('../package.json')
       .write('write-test-output.js');
 
-    vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
+      console.log(surgeon.newfile)
+
+    var file = fs.readFileSync(surgeon.newfile, 'utf8');
+    vm.runInNewContext(file, sandbox, 'sandbox.vm');
     
-    //test.ok(sandbox.test5(), 'The function was extracted and executed.')
+    test.ok(sandbox.test5(), 'The function was extracted and executed.')
     
-    test.expect(0);
+    test.expect(1);
     test.done();
   }
 });
