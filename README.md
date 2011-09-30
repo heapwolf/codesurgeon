@@ -13,7 +13,7 @@ If you have a lot of libraries and need to build distributions of different conf
 ## Usage
 All writes are done synchronously, so you can chain them. Here are a few examples.
 
-Source File
+Source File (**src.js**)
 
 ```js
 function funcA() { return 'A'; }
@@ -26,19 +26,19 @@ Build Script
 ```js
 
 var Codesurgeon = require('codesurgeon').Codesurgeon;
-var surgeon = new Codesurgeon;
+var surgeon = new Codesurgeon;    // make an instance
 
 surgeon
-  .configure({ // lets add some configuration options!
-    quiet: true, // how about you just not say anything for now
-    package: '../package.json' // an read my package.json
+  .configure({                    // lets add some configuration options!
+    quiet: true,                  // how about you just not say anything for now
+    package: '../package.json'    // an read my package.json
   })
-  .read(__dirname + '/dummy.js') // add one or more files to analyze
-  .extract('funcB') // specify the functions we want
-  .write('write-test-output.js'); // write the file to disk
+  .read(__dirname + '/src.js')    // add one or more files to analyze
+  .extract('funcB')               // specify the functions we want
+  .write(__dirname + '/dest.js'); // write the file to disk
 ```
 
-Destination File (uses my package.json to add a header and change the filename)
+Destination File (**dest.js**) (uses my package.json to add a header and change the filename to include the version number)
 
 ```js
 //

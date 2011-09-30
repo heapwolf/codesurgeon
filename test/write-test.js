@@ -25,7 +25,8 @@ module.exports = write({
       })
       .read(__dirname + '/dummy.js')
       .extract('test5')
-      .write('write-test-output.js');
+      .write('write-test-output.js')
+    ;
 
     var file = fs.readFileSync(surgeon.newfile, 'utf8');
     vm.runInNewContext(file, sandbox, 'sandbox.vm');
@@ -49,9 +50,10 @@ module.exports = write({
         package: '../package.json'
       })
       .read(__dirname + '/dummy.js')
-      .extract('hello')
+      .extract('exports.hello')
       .wrap()
-      .write('write-test-output-wrap.js');
+      .write('write-test-output-wrap.js')
+    ;
 
     var file = fs.readFileSync(surgeon.newfile, 'utf8');
     vm.runInNewContext(file, sandbox, 'sandbox.vm');
@@ -60,5 +62,32 @@ module.exports = write({
     
     test.expect(1);
     test.done();
+  },
+  
+  '3. Extract a method by `simple` name and append the contents to an existing file.': function (test) {
+    var surgeon = new Codesurgeon;
+
+    var sandbox = {};
+
+    surgeon
+      .configure({ 
+        quiet: true, 
+        package: '../package.json' 
+      })
+      .read(__dirname + '/dummy.js')
+      .extract('test6')
+      .append('write-test-output.js')
+    ;
+
+    var file = fs.readFileSync(surgeon.newfile, 'utf8');
+
+    vm.runInNewContext(file, sandbox, 'sandbox.vm');
+    console.dir(sandbox)
+
+    test.ok(sandbox.test6(), 'The function was extracted and executed.')
+
+    test.expect(1);
+    test.done();
   }
+
 });
