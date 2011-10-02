@@ -40,19 +40,19 @@ var test6 = function() {
 };
 
 var test7 = function() {
-  
+  return 'test7';
 }();
 
 var test8 = function test7() {
-  
+  return 'test8';  
 }();
 
 var test9 = (function() {
-  
+  return 'test9';
 })();
 
 var test10 = (function() {
-  
+  return 'test10';
 }());
 
 var test11 = {

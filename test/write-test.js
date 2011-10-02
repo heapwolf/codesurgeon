@@ -23,7 +23,7 @@ module.exports = write({
         quiet: true, 
         package: '../package.json' 
       })
-      .read(__dirname + '/dummy.js')
+      .read(__dirname + '/dummy1.js')
       .extract('test5')
       .write('write-test-output.js')
     ;
@@ -49,7 +49,7 @@ module.exports = write({
         quiet: true,
         package: '../package.json'
       })
-      .read(__dirname + '/dummy.js')
+      .read(__dirname + '/dummy1.js')
       .extract('exports.hello')
       .wrap()
       .write('write-test-output-wrap.js')
@@ -63,7 +63,7 @@ module.exports = write({
     test.expect(1);
     test.done();
   },
-  
+
   '3. Extract a method by `simple` name and append the contents to an existing file.': function (test) {
     var surgeon = new Codesurgeon;
 
@@ -74,7 +74,7 @@ module.exports = write({
         quiet: true, 
         package: '../package.json' 
       })
-      .read(__dirname + '/dummy.js')
+      .read(__dirname + '/dummy1.js')
       .extract('test6')
       .append('write-test-output.js')
     ;
@@ -82,12 +82,39 @@ module.exports = write({
     var file = fs.readFileSync(surgeon.newfile, 'utf8');
 
     vm.runInNewContext(file, sandbox, 'sandbox.vm');
-    console.dir(sandbox)
 
     test.ok(sandbox.test6(), 'The function was extracted and executed.')
 
     test.expect(1);
     test.done();
+  },
+  
+  
+  '4. Extract a method by `simple` name and append the contents to an existing file asyncronously.': function (test) {
+    var surgeon = new Codesurgeon;
+
+    var sandbox = {};
+
+    surgeon
+      .configure({ 
+        quiet: true, 
+        package: '../package.json' 
+      })
+      .read(__dirname + '/dummy1.js')
+      .extract('test10')
+      .append('write-test-output.js', function() { 
+
+        var file = fs.readFileSync(this.newfile, 'utf8');
+        vm.runInNewContext(file, sandbox, 'sandbox.vm');
+
+        test.ok(sandbox.test6(), 'The function was extracted and executed.')
+
+        test.expect(1);
+        test.done();
+
+      })
+    ;
+
   }
 
 });

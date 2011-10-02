@@ -27,7 +27,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/dummy.js')
+      .read(__dirname + '/dummy1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -59,7 +59,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/dummy.js')
+      .read(__dirname + '/dummy1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -90,7 +90,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/dummy.js')
+      .read(__dirname + '/dummy1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -103,8 +103,52 @@ module.exports = extraction({
 
     test.expect(1);
     test.done();
-  }
+  },
 
+  '4. Extract a variable from the result of reading in multiple source files.': function (test) {
+
+    var surgeon = new Codesurgeon;
+    var sandbox = {};
+
+    surgeon
+      .configure({ quiet: true })
+      .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
+      .extract('test1', 'test12');
+
+    vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
+
+    test.equal(sandbox.test1, 20, 'The variable was extracted and evaluated correctly.');
+
+    test.expect(1);
+    test.done();
+  },
+  
+  '5. Extract a variable from the result of reading in multiple source files asyncronously.': function (test) {
+
+    var surgeon = new Codesurgeon;
+
+    var sandbox = { // fake node environment.
+      module: { exports: {} },
+      exports: {}
+    };
+
+    surgeon
+      .configure({ quiet: true })
+      .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js', function() {
+
+        this.extract('test1', 'test12');
+        
+        vm.runInNewContext(this.output, sandbox, 'sandbox.vm');
+
+        test.equal(sandbox.test1, 20, 'The variable was extracted and evaluated correctly.');
+        test.equal(sandbox.test12(), 12, 'The function was extracted and evaluated correctly.');
+        
+        test.expect(2);
+        test.done();
+
+      })
+    ;
+  }
 
 });
 
