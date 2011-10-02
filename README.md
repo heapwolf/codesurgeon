@@ -42,7 +42,9 @@ surgeon
   )
   .write(__dirname + '/dest.js'); // write the file to disk
 
+  //
   // -OR- read and write methods can be asynchronous by adding a callback!
+  //
 
   surgeon
     .configure({
@@ -57,7 +59,6 @@ surgeon
         this.write(__dirname + '/dest.js');
       }
     );
-
 ```
 
 Destination File (**dest.js**) (uses my package.json to add a header and change the filename to include the version number)
@@ -72,11 +73,28 @@ function funcB() { return 'B'; }
 var variable2 = 100 + 100;
 ```
 
+Also, it's easy to change the name of an item that is extracted!
+
+```js
+surgeon
+  .configure({ quiet: true })
+  .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
+  .extract(
+    'funcA', 
+    ['funcC', 'funcD'] // rename the item
+  );
+```
+
+```js
+function funcA() { return 'A'; }
+function funcD() { return 'C'; } // this has been renamed
+```
+
 ## API
 
 ### Constructor
 
-#### function Codesurgeon(options)
+#### Codesurgeon(options)
 
 ```
 `optons` {Object} a json object literal that can contain configuration options.
@@ -88,7 +106,7 @@ The constructor function provides an instance of the Codesurgen.
 
 ### Instance Methods
 
-#### function configure(options)
+#### configure(options)
 
 ```
 `optons` {Object} a json object literal that can contain configuration options.
@@ -96,7 +114,7 @@ The constructor function provides an instance of the Codesurgen.
 
 Allows you to pass configuration settings to the instance, helpful as you chain together methods.
 
-#### function package(path)
+#### package(path)
 
 ```
 `path` {String} a path to a valid `package.json` file.
@@ -104,7 +122,7 @@ Allows you to pass configuration settings to the instance, helpful as you chain 
 
 Capture package details of a `package.json` file. Used in concert with the `write` method. The write method will attempt to read the file and 
 
-#### function read(...files)
+#### read(...files)
 
 ```
 `files` {...String} a series of strings that represent the locations of files
@@ -112,7 +130,7 @@ Capture package details of a `package.json` file. Used in concert with the `writ
 
 Read one or more files from disk.
 
-#### function wrap(options)
+#### wrap(options)
 
 ```
 `optons` {Object} a json object literal that can contain configuration options.
@@ -126,7 +144,7 @@ Read one or more files from disk.
 
 Wraps the code in a closure.
 
-#### function extract(...methods)
+#### extract(...methods)
 
 ```
 `methods` {...String} a series of strings that represent the methods that can be found in the code that has been read by the `read` method.
@@ -134,7 +152,7 @@ Wraps the code in a closure.
 
 Specifies the methods to extract from the files that have been read. You can specify a simple variable or function name such as `myMethod` or you can be specific about the item you are looking for, e.g. `MyConstructor.prototype.foo`. This is helpful in the case where you have another method named `foo` that might occur beforehand, e.g. `OtherConstructor.prototype.foo`.
 
-#### function write(file)
+#### write(file)
 
 ```
 `file` {String} a file name that will be created or overwritten.
@@ -142,7 +160,7 @@ Specifies the methods to extract from the files that have been read. You can spe
 
 Write the output to a file.
 
-#### function append(file)
+#### append(file)
 
 ```
 `file` {String} a file name that will be appended to.
@@ -150,7 +168,7 @@ Write the output to a file.
 
 Write the output to a file.
 
-#### function uglify(options)
+#### uglify(options)
 
 ```
 `optons` {Object} a json object literal that can contain configuration options.

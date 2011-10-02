@@ -64,7 +64,10 @@ module.exports = extraction({
       //
       // get one or more methods from the code that we've read in.
       //
-      .extract('NODEJITSU.B.prototype.p', 'NODEJITSU.B');
+      .extract(
+        'NODEJITSU.B', 
+        'NODEJITSU.B.prototype.p'
+      );
 
     vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
 
@@ -148,7 +151,27 @@ module.exports = extraction({
 
       })
     ;
-  }
+  },
+  '4. Extract-As.': function (test) {
+
+    var surgeon = new Codesurgeon;
+    var sandbox = {};
+
+    surgeon
+      .configure({ quiet: true })
+      .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
+      .extract(
+        'test1', 
+        ['test12', 'bazz12']
+      );
+
+    vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
+
+    test.equal(sandbox.bazz12(), 12, 'The variable was extracted and evaluated correctly.');
+
+    test.expect(1);
+    test.done();
+  },
 
 });
 
