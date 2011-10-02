@@ -115,6 +115,31 @@ module.exports = write({
       })
     ;
 
+  },
+  
+  '5. Uglify output.': function (test) {
+    var surgeon = new Codesurgeon;
+
+    var sandbox = {};
+
+    surgeon
+      .configure({ 
+        quiet: true, 
+        package: '../package.json' 
+      })
+      .read(__dirname + '/dummy1.js')
+      .extract('test5')
+      .uglify()
+      .write('write-test-output-uglifyd.js')
+    ;
+
+    var file = fs.readFileSync(surgeon.newfile, 'utf8');
+    vm.runInNewContext(file, sandbox, 'sandbox.vm');
+
+    test.ok(sandbox.test5(), 'The function was extracted and executed.')
+
+    test.expect(1);
+    test.done();
   }
 
 });
