@@ -36,6 +36,23 @@ surgeon
   .read(__dirname + '/src.js')    // add one or more files to analyze
   .extract('funcB')               // specify the functions we want
   .write(__dirname + '/dest.js'); // write the file to disk
+
+  // -OR- read and write methods can be asynchronous! for example...
+
+  surgeon
+    .configure({
+      quiet: true,
+      package: '../package.json'
+    })
+    .read(
+      __dirname + '/src1.js',
+      __dirname + '/src2.js',
+      function() {
+        this.extract('funcB')
+        this.write(__dirname + '/dest.js');
+      }
+    );
+
 ```
 
 Destination File (**dest.js**) (uses my package.json to add a header and change the filename to include the version number)
