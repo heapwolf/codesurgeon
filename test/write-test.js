@@ -125,7 +125,7 @@ module.exports = write({
     surgeon
       .configure({ 
         quiet: true, 
-        package: '../package.json' 
+        package: '../package.json'
       })
       .read(__dirname + '/dummy1.js')
       .extract('test5')
