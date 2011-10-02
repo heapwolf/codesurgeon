@@ -11,13 +11,15 @@ If you have a lot of libraries and need to build distributions of different conf
 `npm install codesurgeon`
 
 ## Usage
-All writes are done synchronously, so you can chain them. Here are a few examples.
+All writes are done synchronously by default, so you can chain them. Here are a few examples.
 
 Source File (**src.js**)
 
 ```js
 function funcA() { return 'A'; }
 function funcB() { return 'B'; }
+var variable1 = 100 + 100;
+var variable2 = 100 + 100;
 function funcC() { return 'C'; }
 ```
 
@@ -34,10 +36,13 @@ surgeon
     package: '../package.json'    // an read my package.json
   })
   .read(__dirname + '/src.js')    // add one or more files to analyze
-  .extract('funcB')               // specify the functions we want
+  .extract(                       // specify the names in the order we want them to be compiled
+    'funcB',
+    'variable2'
+  )
   .write(__dirname + '/dest.js'); // write the file to disk
 
-  // -OR- read and write methods can be asynchronous! for example...
+  // -OR- read and write methods can be asynchronous by adding a callback!
 
   surgeon
     .configure({
@@ -64,6 +69,7 @@ Destination File (**dest.js**) (uses my package.json to add a header and change 
 //
 
 function funcB() { return 'B'; }
+var variable2 = 100 + 100;
 ```
 
 ## API
