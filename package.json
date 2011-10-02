@@ -1,7 +1,7 @@
 {
   "name": "codesurgeon",
   "description": "Build JS files based on JS code extracted from files",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Nodejitsu Inc <info@nodejitsu.com>",
   "contributors": [
     { "name": "Paolo Fragomeni", "email": "hij1nx@nodejitsu.com" }
