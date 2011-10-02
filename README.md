@@ -66,7 +66,7 @@ Destination File (**dest.js**) (uses my package.json to add a header and change 
 ```js
 //
 // Generated on Thu Sep 29 2011 12:29:42 GMT-0400 (EDT) by Codesurgeon.
-// Version 0.1.5
+// Version 0.1.6
 //
 
 function funcB() { return 'B'; }
@@ -88,7 +88,7 @@ surgeon
 ```js
 //
 // Generated on Thu Sep 29 2011 12:29:42 GMT-0400 (EDT) by Codesurgeon.
-// Version 0.1.5
+// Version 0.1.6
 //
 function funcA() { return 'A'; }
 function funcD() { return 'C'; } // this has been renamed
