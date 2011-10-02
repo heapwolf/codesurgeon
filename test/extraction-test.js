@@ -152,24 +152,28 @@ module.exports = extraction({
       })
     ;
   },
-  '4. Extract-As.': function (test) {
+  '4. Extract-As for `simple` and dot notated items.': function (test) {
 
     var surgeon = new Codesurgeon;
-    var sandbox = {};
+    var sandbox = {
+      exports: {}
+    };
 
     surgeon
       .configure({ quiet: true })
       .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
       .extract(
-        'test1', 
-        ['test12', 'bazz12']
+        'test1',
+        ['test12', 'bazz12'],
+        ['exports.hello', 'exports.foo']
       );
 
     vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
 
     test.equal(sandbox.bazz12(), 12, 'The variable was extracted and evaluated correctly.');
+    test.equal(sandbox.exports.foo, 'Hello, World.', 'The variable was extracted and evaluated correctly.');
 
-    test.expect(1);
+    test.expect(2);
     test.done();
   },
 

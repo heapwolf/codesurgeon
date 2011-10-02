@@ -81,7 +81,7 @@ surgeon
   .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
   .extract(
     'funcA', 
-    ['funcC', 'funcD'] // rename the item
+    ['funcC', 'funcD'] // rename the item (works with dot notation too)
   );
 ```
 
