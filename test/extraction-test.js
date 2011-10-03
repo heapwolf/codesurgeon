@@ -175,34 +175,6 @@ module.exports = extraction({
 
     test.expect(2);
     test.done();
-  },
-  
-  '4. Extract using RegExp for `simple` and dot notated items.': function (test) {
-
-    var surgeon = new Codesurgeon;
-    var sandbox = {
-      exports: {}
-    };
-
-    surgeon
-      .configure({ quiet: true })
-      .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
-      .extract(
-        'test1',
-        'test12',
-        /exports\.([a-zA-Z0-9-_$]+)/
-      );
-
-    vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
-
-    console.log(surgeon.output)
-
-    test.equal(sandbox.test12(), 12, 'The variable was extracted and evaluated correctly.');
-    test.equal(sandbox.exports.hello, 'Hello, World.', 'The variable was extracted and evaluated correctly.');
-
-    test.expect(2);
-    test.done();
-  },
-
-});
+  }
+  });
 
