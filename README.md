@@ -101,9 +101,9 @@ function funcD() { return 'C'; } // this has been renamed
 #### Codesurgeon(options)
 
 ```
-`optons` {Object} a json object literal that can contain configuration options.
-`optons:encoding` {String} the encoding that will be used to product the result.
-`optons:quiet` {String} indicate how much logging you want Codesurgen to produce.
+`options` {Object} a json object literal that can contain configuration options.
+`options:encoding` {String} the encoding that will be used to product the result.
+`options:quiet` {String} indicate how much logging you want Codesurgen to produce.
 ```
 
 The constructor function provides an instance of the Codesurgen.
@@ -113,7 +113,7 @@ The constructor function provides an instance of the Codesurgen.
 #### configure(options)
 
 ```
-`optons` {Object} a json object literal that can contain configuration options.
+`options` {Object} a json object literal that can contain configuration options.
 ```
 
 Allows you to pass configuration settings to the instance, helpful as you chain together methods.
@@ -137,12 +137,12 @@ Read one or more files from disk.
 #### wrap(options)
 
 ```
-`optons` {Object} a json object literal that can contain configuration options.
-`optons:outer` {String} code that will be appended outside of the closure.
-`optons:before` {String} a string of code to prepend to the body of the closure.
-`optons:after` {String} a string of code to append to the body of the closure.
-`optons:params` {String} the parameters that you want to pass to the closure
-`optons:signature` {String} the method signature (parameters that go inside the closure's parenthesis e.g. `function(foo, bar, bazz)` where "foo, bar, bazz" is the signature).
+`options` {Object} a json object literal that can contain configuration options.
+`options:outer` {String} code that will be appended outside of the closure.
+`options:before` {String} a string of code to prepend to the body of the closure.
+`options:after` {String} a string of code to append to the body of the closure.
+`options:params` {String} the parameters that you want to pass to the closure
+`options:signature` {String} the method signature (parameters that go inside the closure's parenthesis e.g. `function(foo, bar, bazz)` where "foo, bar, bazz" is the signature).
 ```
 
 
@@ -175,9 +175,9 @@ Write the output to a file.
 #### uglify(options)
 
 ```
-`optons` {Object} a json object literal that can contain configuration options.
-`optons:squeeze` {String} Applies various compression techniques. It expects an AST (as returned by parse-js) and returns a new, compatible AST (possibly sharing structure with the original one!).
-`optons:mangle` {String} This option is careful not to affect the semantics of the code. It will avoid renaming undeclared variables (which could possibly be defined in some other script), and avoid renaming names that are under the influence of a with block, or within the context of an eval call.
+`options` {Object} a json object literal that can contain configuration options.
+`options:squeeze` {String} Applies various compression techniques. It expects an AST (as returned by parse-js) and returns a new, compatible AST (possibly sharing structure with the original one!).
+`options:mangle` {String} This option is careful not to affect the semantics of the code. It will avoid renaming undeclared variables (which could possibly be defined in some other script), and avoid renaming names that are under the influence of a with block, or within the context of an eval call.
 ```
 
 Compacts and obfuscates the code.
