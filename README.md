@@ -200,12 +200,12 @@ Write the output to a file.
 Compacts and obfuscates the code.
 
 
-#### lint(success, fail)
+#### lint(success [, fail, options])
 
 ```
 `success` {Function} a callback that will be executed if the code passed the requirements of the lint parser.
-`fail` {Function} a callback that will be executed if the code failed the requirements of the lint parser.
-`options` {Object} an object literal containing the options that are supported by the parser.
+`fail` {Function} optional, a callback that will be executed if the code failed the requirements of the lint parser.
+`options` {Object} optional, an object literal containing the options that are supported by the parser.
 ```
 
 Strict javascript validation according to Duglass Crockford's JSLint specification (https://github.com/douglascrockford/JSLint)
@@ -226,12 +226,12 @@ Most of the options are booleans: They are all optional and have a default value
 }
 ```
 
-#### hint(success, fail)
+#### hint(success [, fail, options])
 
 ```
 `success` {Function} a callback that will be executed if the code passed the requirements of the lint parser.
-`fail` {Function} a callback that will be executed if the code failed the requirements of the lint parser.
-`options` {Object} an object literal containing the options that are supported by the parser.
+`fail` {Function} optional, a callback that will be executed if the code failed the requirements of the lint parser.
+`options` {Object} optional, an object literal containing the options that are supported by the parser.
 ```
 
 Less Strict javascript validation according to JSHint, a community-driven tool to detect errors in JavaScript code. (https://github.com/jshint)
