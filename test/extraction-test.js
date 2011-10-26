@@ -27,7 +27,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/dummy1.js')
+      .read(__dirname + '/fixture1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -59,7 +59,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/dummy1.js')
+      .read(__dirname + '/fixture1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -93,7 +93,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/dummy1.js')
+      .read(__dirname + '/fixture1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -115,7 +115,7 @@ module.exports = extraction({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
+      .read(__dirname + '/fixture1.js', __dirname + '/fixture2.js')
       .extract('test1', 'test12');
 
     vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
@@ -137,7 +137,7 @@ module.exports = extraction({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js', function() {
+      .read(__dirname + '/fixture1.js', __dirname + '/fixture2.js', function() {
 
         this.extract('test1', 'test12');
         
@@ -161,7 +161,7 @@ module.exports = extraction({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
+      .read(__dirname + '/fixture1.js', __dirname + '/fixture2.js')
       .extract(
         'test1',
         ['test12', 'bazz12'],

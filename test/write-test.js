@@ -23,7 +23,7 @@ module.exports = write({
         quiet: true, 
         package: '../package.json' 
       })
-      .read(__dirname + '/dummy1.js')
+      .read(__dirname + '/fixture1.js')
       .extract('test5')
       .write('write-test-output.js')
     ;
@@ -49,7 +49,7 @@ module.exports = write({
         quiet: true,
         package: '../package.json'
       })
-      .read(__dirname + '/dummy1.js')
+      .read(__dirname + '/fixture1.js')
       .extract('exports.hello')
       .wrap()
       .write('write-test-output-wrap.js')
@@ -74,7 +74,7 @@ module.exports = write({
         quiet: true, 
         package: '../package.json' 
       })
-      .read(__dirname + '/dummy1.js')
+      .read(__dirname + '/fixture1.js')
       .extract('test6')
       .append('write-test-output.js')
     ;
@@ -100,7 +100,7 @@ module.exports = write({
         quiet: true, 
         package: '../package.json' 
       })
-      .read(__dirname + '/dummy1.js')
+      .read(__dirname + '/fixture1.js')
       .extract('test10')
       .append('write-test-output.js', function() { 
 
@@ -127,7 +127,7 @@ module.exports = write({
         quiet: true, 
         package: '../package.json'
       })
-      .read(__dirname + '/dummy1.js')
+      .read(__dirname + '/fixture1.js')
       .extract('test5')
       .uglify()
       .write('write-test-output-uglifyd.js')
@@ -140,6 +140,34 @@ module.exports = write({
 
     test.expect(1);
     test.done();
+  },
+    
+  '5. Extract everything.': function (test) {
+    var surgeon = new Codesurgeon;
+
+    var sandbox = {
+      exports: {},
+      module: { exports: {} }
+    };
+
+    surgeon
+      .configure({ 
+        quiet: true, 
+        package: '../package.json'
+      })
+      .read(__dirname + '/fixture1.js')
+      .extract()
+      .write('write-test-output-broad.js')
+    ;
+
+    var file = fs.readFileSync(surgeon.newfile, 'utf8');
+    vm.runInNewContext(file, sandbox, 'sandbox.vm');
+
+    test.ok(sandbox.test5(), 'The function was extracted and executed.')
+
+    test.expect(1);
+    test.done();
   }
 
 });
+

@@ -2,7 +2,7 @@
 <img src="http://github.com/hij1nx/codesurgeon/raw/master/logo.png">
 
 ## Synopsis
-A library for `precision code extraction`. Hack, slash and stitch javascript code using Node.js. Also performs code minification and obfuscation on the final product.
+A library for `precision code extraction`. Hack, slash and stitch javascript code using Node.js. Also optionally performs code minification, obfuscation, lint and hint on the final product. You can also use codesurgon to simply concatenate files.
 
 ## Motivation
 If you have a lot of libraries and need to build distributions of different configurations. This is the tool for you. It doesn't require you to crap up your file with any special syntax it parses the AST to extract your functions.
@@ -11,9 +11,9 @@ If you have a lot of libraries and need to build distributions of different conf
 `npm install codesurgeon`
 
 ## Usage
-All writes are done synchronously by default, so you can chain them. Here are a few examples.
+All writes are done synchronously by default (can be done asynchronously), so you can chain them. Here are a few examples.
 
-Source File (**src.js**)
+### Source file
 
 ```js
 function funcA() { return 'A'; }
@@ -23,10 +23,14 @@ var variable2 = 100 + 100;
 function funcC() { return 'C'; }
 ```
 
-Build Script
+### Build script examples using the above source file
 
 ```js
 
+//
+// don't use this example code, the file paths are wrong. 
+// see the tests for cut and paste if you're feeling lazy.
+//
 var Codesurgeon = require('codesurgeon').Codesurgeon;
 var surgeon = new Codesurgeon;    // make an instance
 
@@ -35,16 +39,18 @@ surgeon
     quiet: true,                  // how about you just not say anything for now
     package: '../package.json'    // an read my package.json
   })
-  .read(__dirname + '/src.js')    // add one or more files to analyze
+  .read('/src.js')                // add one or more files to analyze
   .extract(                       // specify the names in the order we want them to be compiled
     'funcB',
     'variable2'
   )
   .write(__dirname + '/dest.js'); // write the file to disk
 
-  //
-  // -OR- read and write methods can be asynchronous by adding a callback!
-  //
+```
+
+Read and write methods can be used asynchronously by adding a callback!
+
+```js
 
   surgeon
     .configure({
@@ -52,16 +58,20 @@ surgeon
       package: '../package.json'
     })
     .read(
-      __dirname + '/src1.js',
-      __dirname + '/src2.js',
-      function() {
-        this.extract('funcB')
+      '/src1.js',
+      '/src2.js',
+      function() { // callback to fire after reading...
+
+        this.extract() // calling `extract` without parameters extracts everything from the file
         this.write(__dirname + '/dest.js');
+
       }
     );
 ```
 
-Destination File (**dest.js**) (uses my package.json to add a header and change the filename to include the version number)
+### Destination File 
+
+Uses the specified package.json to add a header and change the filename to include the version number.
 
 ```js
 //
@@ -73,17 +83,23 @@ function funcB() { return 'B'; }
 var variable2 = 100 + 100;
 ```
 
+### Extract something and assign it a new name
+
 Also, it's easy to change the name of an item that is extracted!
 
 ```js
 surgeon
-  .configure({ quiet: true })
-  .read(__dirname + '/dummy1.js', __dirname + '/dummy2.js')
+  .read(
+    '/dummy1.js', 
+    '/dummy2.js'
+  )
   .extract(
-    'funcA', 
+    'funcA',
     ['funcC', 'funcD'] // rename the item (works with dot notation too)
   );
 ```
+
+### Destination File
 
 ```js
 //
@@ -93,6 +109,7 @@ surgeon
 function funcA() { return 'A'; }
 function funcD() { return 'C'; } // this has been renamed
 ```
+
 
 ## API
 
@@ -148,7 +165,7 @@ Read one or more files from disk.
 
 Wraps the code in a closure.
 
-#### extract(...methods)
+#### extract(...methods) // WITHOUT PARAMETERS WILL GET EVERYTHING
 
 ```
 `methods` {...String} a series of strings that represent the methods that can be found in the code that has been read by the `read` method.
@@ -181,6 +198,45 @@ Write the output to a file.
 ```
 
 Compacts and obfuscates the code.
+
+
+#### lint(success, fail)
+
+```
+`success` {Function} a callback that will be executed if the code passed the requirements of the lint parser.
+`fail` {Function} a callback that will be executed if the code failed the requirements of the lint parser.
+`options` {Object} an object literal containing the options that are supported by the parser.
+```
+
+Strict javascript validation according to Duglass Crockford's JSLint specification (https://github.com/douglascrockford/JSLint)
+
+Most of the options are booleans: They are all optional and have a default value of false. One of the options, predef, can be an array of names, which will be used to declare global variables, or an object whose keys are used as global names, with a boolean value that determines if they are assignable. If the code is not valid, you will see a print out of the issues that were found. The format of the errors will be printed in the form of an array of objects containing these members:
+
+```js
+{
+    line      : The line (relative to 0) at which the lint was found
+    character : The character (relative to 0) at which the lint was found
+    reason    : The problem
+    evidence  : The text line in which the problem occurred
+    raw       : The raw message before the details were inserted
+    a         : The first detail
+    b         : The second detail
+    c         : The third detail
+    d         : The fourth detail
+}
+```
+
+#### hint(success, fail)
+
+```
+`success` {Function} a callback that will be executed if the code passed the requirements of the lint parser.
+`fail` {Function} a callback that will be executed if the code failed the requirements of the lint parser.
+`options` {Object} an object literal containing the options that are supported by the parser.
+```
+
+Less Strict javascript validation according to JSHint, a community-driven tool to detect errors in JavaScript code. (https://github.com/jshint)
+
+
 
 ## Licence
 (The MIT License)

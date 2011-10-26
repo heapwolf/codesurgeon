@@ -1,7 +1,7 @@
 {
   "name": "codesurgeon",
   "description": "Build JS files based on JS code extracted from files",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "author": "Nodejitsu Inc <info@nodejitsu.com>",
   "contributors": [
     { "name": "Paolo Fragomeni", "email": "hij1nx@nodejitsu.com" }
@@ -13,7 +13,9 @@
   "keywords": ["build", "deploy", "devops"],
   "dependencies": {
     "uglify-js": "1.0.x",
-    "traverse": "0.5.x"
+    "traverse": "0.5.x",
+    "jslintcore": "*",
+    "jshint": "0.5.x"
   },
   "devDependencies": {
     "colors": "0.5.x",
