@@ -15,6 +15,7 @@
     "uglify-js": "1.0.x",
     "traverse": "0.5.x",
     "jslint-core": "*",
+    "eyes": "*",
     "jshint": "0.5.x"
   },
   "devDependencies": {
