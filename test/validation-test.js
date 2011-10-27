@@ -80,5 +80,22 @@ module.exports = write({
     
     test.expect(1);
     test.done();
+  },
+  '5. Find prerequisites.': function (test) {
+
+    var surgeon = new Codesurgeon;
+    var sandbox = {
+      exports: {}
+    };
+
+    surgeon
+      .package('../package.json')
+      .read(__dirname + '/fixture2.js')
+      .extract()
+      .validate()
+      ;
+
+    test.expect(0);
+    test.done();
   }
 });

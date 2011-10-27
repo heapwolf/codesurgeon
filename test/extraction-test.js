@@ -152,7 +152,7 @@ module.exports = extraction({
       })
     ;
   },
-  '4. Extract-As for `simple` and dot notated items.': function (test) {
+  '6. Extract-As for `simple` and dot notated items.': function (test) {
 
     var surgeon = new Codesurgeon;
     var sandbox = {
@@ -176,5 +176,5 @@ module.exports = extraction({
     test.expect(2);
     test.done();
   }
-  });
+});
 
