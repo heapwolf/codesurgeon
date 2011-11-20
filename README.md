@@ -37,7 +37,7 @@ var surgeon = new Codesurgeon;    // make an instance
 surgeon
   .configure({                    // lets add some configuration options!
     quiet: true,                  // how about you just not say anything for now
-    package: '../package.json'    // an read my package.json
+    package: '../package.json'    // and read my package.json
   })
   .read('/src.js')                // add one or more files to analyze
   .extract(                       // specify the names in the order we want them to be compiled
