@@ -12,11 +12,10 @@ If you have a lot of libraries and need to build distributions of different conf
 
 # Usage
 
-## Simple examples
 All writes are done synchronously by default (can be done asynchronously), so you can chain them. Here are a few examples. 
 Here is a Build script examples using the above source file
 
-### Synchronous example
+## Synchronous example
 
 ```js
 var Codesurgeon = require('codesurgeon').Codesurgeon;
@@ -35,7 +34,7 @@ surgeon
   .write(__dirname + '/dest.js'); // write the file to disk
 ```
 
-### Asynchronous example
+## Asynchronous example
 Read and write methods can be used asynchronously by adding a callback!
 
 ```js
@@ -79,7 +78,7 @@ function funcB() { return 'B'; }
 var variable2 = 100 + 100;
 ```
 
-## Extract-As
+## Extract-Code-As
 It is easy to change the name of an item that is extracted!
 
 ```js
@@ -188,7 +187,7 @@ Write the output to a file.
   @param file {String} a file name that will be created or overwritten.
 ```
 
-#### append()
+### append()
 Write the output to a file.
 
 ```
