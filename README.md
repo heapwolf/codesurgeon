@@ -7,6 +7,13 @@ A library for `precision code extraction`. Hack, slash and stitch javascript cod
 # Motivation
 If you have a lot of libraries and need to build distributions of different configurations. This is the tool for you. It doesn't require you to crap up your file with any special syntax it parses the AST to extract your functions.
 
+# Features
+ - Extract code by function or variable name
+ - Build a buffer of multiple files from which to extract code
+ - Hint/Lint
+ - Uglify
+ - Chainable and asynchronous API
+
 # Installation
 `npm install codesurgeon`
 
