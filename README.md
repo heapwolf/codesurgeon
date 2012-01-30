@@ -5,7 +5,7 @@
 Aggregate code, refine, manipulate and finalize. Codesurgeon approaches the `software build` problem by promoting Node.js programs as `build scripts` and by providing percision extraction.
 
 # Motivation
-Every time a platform emerges, developers create `build tools` that reflect what they learned from the  existing platforms they know. Because of this, the tools they develop solve old problems that aren't necessarily relevant.
+Every time a platform emerges, developers create `build tools` that reflect what they learned from  existing platforms. This often leads to solving old problems that aren't necessarily relevant.
 
 # Features
  - Precision extraction of functions or variables by name
@@ -136,7 +136,7 @@ function D() { return 'C'; } // this has been renamed
 ```
 
 ## Automatic Wrapping
-When compiling a script that will be used in multiple environments, you often want to wrap the code in a closure that will detect the correct environment and pass it into the 
+When compiling a script that will be used in multiple environments, you often want to wrap the code in a closure that will detect the correct environment and pass it in.
 
 ### Source file
 
