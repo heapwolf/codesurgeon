@@ -47,15 +47,15 @@ var surgeon = new Codesurgeon;    // make an instance
 
 surgeon
   .configure({                    // lets add some configuration options!
-    quiet: true,                  // how about you just not say anything for now
-    package: '../package.json'    // and read my package.json
+    quiet: true,                  // don't output the status of each task
+    package: '../package.json'    // read my package.json and use it for version numbers etc.
   })
-  .read('/src.js')                // add one or more files to analyze
+  .read('/src.js')                // add one or more files to add to the buffer
   .extract(                       // specify the names in the order we want them to be compiled
-    'funcB',
-    'variable2'
+    'B',
+    'a'
   )
-  .write(__dirname + '/dest.js'); // write the file to disk
+  .write(__dirname + '/dest.js'); // write the buffer to a file
 ```
 
 ## Asynchronous example
@@ -72,7 +72,14 @@ Read and write methods can be used asynchronously by adding a callback!
       '/src2.js',
       function() { // callback to fire after reading...
 
-        this.extract() // calling `extract` without parameters extracts everything from the file
+        //
+        // calling `extract` without parameters would extract everything from the buffer.
+        //
+        this.extract(
+          'B', 
+          'a'
+        );
+
         this.write(__dirname + '/dest.js');
 
       }
@@ -82,11 +89,11 @@ Read and write methods can be used asynchronously by adding a callback!
 ### Source file
 
 ```js
-function funcA() { return 'A'; }
-function funcB() { return 'B'; }
-var variable1 = 100 + 100;
-var variable2 = 100 + 100;
-function funcC() { return 'C'; }
+function A() { return 'A'; }
+function B() { return 'B'; }
+var a = 100 + 100;
+var b = 100 + 100;
+function C() { return 'C'; }
 ```
 
 ### Destination File 
@@ -94,12 +101,12 @@ Uses the specified `package.json` to add a header and change the filename to inc
 
 ```js
 //
-// Generated on Thu Sep 29 2011 12:29:42 GMT-0400 (EDT) by Codesurgeon.
+// Generated on Thu Sep 29 2012 12:29:42 GMT-0400 (EDT) by Codesurgeon.
 // Version 0.1.6
 //
 
-function funcB() { return 'B'; }
-var variable2 = 100 + 100;
+function B() { return 'B'; }
+var a = 100 + 100;
 ```
 
 ## Extract-Code-As
@@ -112,8 +119,8 @@ surgeon
     '/dummy2.js'
   )
   .extract(
-    'funcA',
-    ['funcC', 'funcD'] // rename the item (works with dot notation too)
+    'A',
+    ['C', 'D'] // rename the item (works with dot notation too)
   );
 ```
 
@@ -124,8 +131,17 @@ surgeon
 // Generated on Thu Sep 29 2011 12:29:42 GMT-0400 (EDT) by Codesurgeon.
 // Version 0.1.6
 //
-function funcA() { return 'A'; }
-function funcD() { return 'C'; } // this has been renamed
+function A() { return 'A'; }
+function D() { return 'C'; } // this has been renamed
+```
+
+## Automatic Wrapping
+When compiling a script that will be used in multiple environments, you often want to wrap the code in a closure that will detect the correct environment and pass it into the 
+
+### Source file
+
+```js
+function A() { return 'A'; }
 ```
 
 
