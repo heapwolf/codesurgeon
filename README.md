@@ -21,7 +21,10 @@ A library for `precision code extraction`. Also optionally performs code minific
  - Chainable and asynchronous API
 
 # Installation
-`npm install codesurgeon`
+
+```bash
+$npm install codesurgeon
+```
 
 # Usage
 Simply write a javascript file like the example below. And run it. 
