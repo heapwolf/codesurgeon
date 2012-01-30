@@ -24,11 +24,20 @@ A library for `precision code extraction`. Also optionally performs code minific
 `npm install codesurgeon`
 
 # Usage
+Simply write a javascript file like the example below. And run it. 
 
-All writes are done synchronously by default (can be done asynchronously), so you can chain them. Here are a few examples. 
-Here is a Build script examples using the above source file
+```bash
+$node mybuildfile.js
+```
+
+Codesurgeon will appreciate piped input!
+
+```bash
+$cat myfile1 myfile2 | node mybuildfile.js
+```
 
 ## Synchronous example
+All writes are done synchronously by default (can be done asynchronously), so you can chain them. Here are a few examples. Here is a Build script examples using the above source file
 
 ```js
 var Codesurgeon = require('codesurgeon').Codesurgeon;
