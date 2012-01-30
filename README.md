@@ -2,11 +2,10 @@
 <img src="http://github.com/hij1nx/codesurgeon/raw/master/logo.png">
 
 # Synopsis
-A unique build tool for Node.js. Hack, slash and stitch javascript code using Node.js.
+Aggregate code, refine, manipulate and finalize versions. Approaches the `software build` problem by promoting Node.js programs as the `build scripts` and providing precession extraction.
 
 # Motivation
-A library for `precision code extraction`. Also optionally performs code minification, obfuscation, lint and hint on the final product. You can also use codesurgon to simply concatenate files.
-
+Every time a platform emerges, developers create `build tools` that reflect what they learned from the  existing platforms they know. Because of this, the tools they develop solve old problems that aren't necessarily relevant.
 
 # Features
  - Precision extraction of functions or variables by name
