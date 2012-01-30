@@ -18,6 +18,7 @@
     "traverse": "0.5.x",
     "jslint-core": "*",
     "eyes": "*",
+    "colors": "*",
     "jshint": "0.5.x"
   },
   "devDependencies": {
