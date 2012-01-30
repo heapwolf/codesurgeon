@@ -141,9 +141,18 @@ When compiling a script that will be used in multiple environments, you often wa
 ### Source file
 
 ```js
-function A() { return 'A'; }
+function A() { ... }
 ```
 
+### Destination file
+Contains a closure that is passed the object relevant to the environment. See the API reference below to change the arguments or detection expression.
+
+```js
+(function(exports) {
+  function A() { ... }
+}(typeof process !== "undefined" && process.title ? module : window));
+
+```
 
 # API
 
