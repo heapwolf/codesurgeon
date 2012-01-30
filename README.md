@@ -2,7 +2,7 @@
 <img src="http://github.com/hij1nx/codesurgeon/raw/master/logo.png">
 
 # Synopsis
-Aggregate code, refine, manipulate and finalize. Codesurgeon approaches the `software build` problem by promoting Node.js programs as `build scripts` and by providing precession extraction.
+Aggregate code, refine, manipulate and finalize. Codesurgeon approaches the `software build` problem by promoting Node.js programs as `build scripts` and by providing percision extraction.
 
 # Motivation
 Every time a platform emerges, developers create `build tools` that reflect what they learned from the  existing platforms they know. Because of this, the tools they develop solve old problems that aren't necessarily relevant.
