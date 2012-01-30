@@ -9,16 +9,16 @@ A library for `precision code extraction`. Also optionally performs code minific
 
 
 # Features
- - Precision extraction of functions or variables by name into a buffer
+ - Precision extraction of functions or variables by name
   - Rename extracted items as they are extracted
   - Control the depth at which variables and function are searched for
-  - Extract any arbitrary value from an object literal
- - Read multiple files into a buffer
+  - Extract any arbitrary value
+ - Read in multiple files and or piped data into a buffer
  - Hint and or Lint on the buffer of code
  - Automatically wrap the buffer in a closure that can detect the javascript environment
  - Exploits your `package.json` to create versioned output filenames and up to date build comments
- - Concatenate files
- - Chainable and asynchronous API
+ - Concatenate files and piped data
+ - Chainable and asynchronous APIs
 
 # Installation
 
