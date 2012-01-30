@@ -2,13 +2,28 @@
 <img src="http://github.com/hij1nx/codesurgeon/raw/master/logo.png">
 
 ## Synopsis
-A library for `precision code extraction`. Hack, slash and stitch javascript code using Node.js. Also optionally performs code minification, obfuscation, lint and hint on the final product. You can also use codesurgon to simply concatenate files.
+A unique build tool for Node.js. Hack, slash and stitch javascript code using Node.js.
 
 ## Motivation
+A library for `precision code extraction`. Also optionally performs code minification, obfuscation, lint and hint on the final product. You can also use codesurgon to simply concatenate files.
+
+
 If you have a lot of libraries and need to build distributions of different configurations. This is the tool for you. It doesn't require you to crap up your file with any special syntax it parses the AST to extract your functions.
 
 ## Installation
 `npm install codesurgeon`
+
+## Features
+ 
+ - Precision extraction of functions or variables by name into a buffer
+  - Rename extracted items as they are extracted
+  - Control the depth at which variables and function are searched for
+  - Extract any arbitrary value from an object literal
+ - Read multiple files into a buffer
+ - Hint and or Lint on the buffer of code
+ - Automatically wrap the buffer in a closure that can detect the javascript environment
+ - Exploits your `package.json` to create versioned output filenames and up to date build comments
+ - Concatenate files
 
 ## Usage
 All writes are done synchronously by default (can be done asynchronously), so you can chain them. Here are a few examples.

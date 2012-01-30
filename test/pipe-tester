@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+var Codesurgeon = require('../lib/codesurgeon').Codesurgeon;
+
+var surgeon = new Codesurgeon;
+
+surgeon
+
+  //
+  // if we want to see logging information or not.
+  //
+  .configure({ quiet: true })
+
+  .read(function() {
+
+  	this.extract('test1');
+  	console.log(this.output)
+  })
+  //
+  // get one or more methods from the code that we've read in.
+  //
+  
+
+ 

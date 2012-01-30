@@ -1,5 +1,6 @@
 var extraction = require('nodeunit').testCase;
 var Codesurgeon = require('../lib/codesurgeon').Codesurgeon;
+var uglify = require('uglify-js');
 var vm = require('vm');
 
 module.exports = extraction({
@@ -174,6 +175,21 @@ module.exports = extraction({
     test.equal(sandbox.exports.foo, 'Hello, World.', 'The variable was extracted and evaluated correctly.');
 
     test.expect(2);
+    test.done();
+  },
+  '7. Extract the value of an arbitrary key from an object literal.': function(test) {
+    
+    var surgeon = new Codesurgeon;
+    var file = __dirname + '/fixture6.js';
+
+    surgeon
+      .configure({ quiet: true })
+      .read(file)
+      .extract('b')
+      ;
+
+    test.equal(surgeon.output, 200);
+    test.expect(1);
     test.done();
   }
 });

@@ -13,6 +13,8 @@
   "keywords": ["build", "deploy", "devops"],
   "dependencies": {
     "uglify-js": "1.0.x",
+    "pkginfo": "*",
+    "flatiron": "*",
     "traverse": "0.5.x",
     "jslint-core": "*",
     "eyes": "*",
