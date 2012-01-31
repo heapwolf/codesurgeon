@@ -17,6 +17,7 @@ module.exports = write({
     var surgeon = new Codesurgeon;
 
     surgeon
+      .configure({ quiet: true })
       .read(__dirname + '/fixture1.js')
       .extract(
         'NODEJITSU.B', 
@@ -34,6 +35,7 @@ module.exports = write({
     var surgeon = new Codesurgeon;
 
     surgeon
+      .configure({ quiet: true })
       .read(__dirname + '/fixture1.js')
       .extract(
         'NODEJITSU.B', 
@@ -51,6 +53,7 @@ module.exports = write({
     var surgeon = new Codesurgeon;
 
     surgeon
+      .configure({ quiet: true })
       .read(__dirname + '/fixture1.js')
       .extract(
         'NODEJITSU.B', 
@@ -68,6 +71,7 @@ module.exports = write({
     var surgeon = new Codesurgeon;
 
     surgeon
+      .configure({ quiet: true })
       .read(__dirname + '/fixture1.js')
       .extract(
         'NODEJITSU.B', 
@@ -89,7 +93,10 @@ module.exports = write({
     };
 
     surgeon
-      .package('../package.json')
+      .configure({ 
+        quiet: true,
+        package: __dirname + '/../package.json'
+      })
       .read(__dirname + '/fixture2.js')
       .extract()
       .validate()

@@ -21,11 +21,11 @@ module.exports = write({
     surgeon
       .configure({ 
         quiet: true, 
-        package: '../package.json' 
+        package: __dirname + '/../package.json' 
       })
       .read(__dirname + '/fixture1.js')
       .extract('test5')
-      .write('write-test-output.js')
+      .write(__dirname + '/output/write-test-output.js')
     ;
 
     var file = fs.readFileSync(surgeon.newfile, 'utf8');
@@ -47,12 +47,12 @@ module.exports = write({
     surgeon
       .configure({
         quiet: true,
-        package: '../package.json'
+        package: __dirname + '/../package.json'
       })
       .read(__dirname + '/fixture1.js')
       .extract('exports.hello')
       .wrap()
-      .write('write-test-output-wrap.js')
+      .write(__dirname + '/output/write-test-output-wrap.js')
     ;
 
     var file = fs.readFileSync(surgeon.newfile, 'utf8');
@@ -72,7 +72,7 @@ module.exports = write({
     surgeon
       .configure({ 
         quiet: true, 
-        package: '../package.json' 
+        package: __dirname + '/../package.json' 
       })
       .read(__dirname + '/fixture1.js')
       .extract('test6')
@@ -98,7 +98,7 @@ module.exports = write({
     surgeon
       .configure({ 
         quiet: true, 
-        package: '../package.json' 
+        package: __dirname + '/../package.json' 
       })
       .read(__dirname + '/fixture1.js')
       .extract('test10')
@@ -125,12 +125,12 @@ module.exports = write({
     surgeon
       .configure({ 
         quiet: true, 
-        package: '../package.json'
+        package: __dirname + '/../package.json'
       })
       .read(__dirname + '/fixture1.js')
       .extract('test5')
       .uglify()
-      .write('write-test-output-uglifyd.js')
+      .write(__dirname + '/output/write-test-output-uglifyd.js')
     ;
 
     var file = fs.readFileSync(surgeon.newfile, 'utf8');
@@ -153,11 +153,11 @@ module.exports = write({
     surgeon
       .configure({ 
         quiet: true, 
-        package: '../package.json'
+        package: __dirname + '/../package.json'
       })
       .read(__dirname + '/fixture1.js')
       .extract()
-      .write('write-test-output-broad.js')
+      .write(__dirname + '/output/write-test-output-broad.js')
     ;
 
     var file = fs.readFileSync(surgeon.newfile, 'utf8');

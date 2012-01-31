@@ -2,16 +2,16 @@
 <img src="http://github.com/hij1nx/codesurgeon/raw/master/logo.png">
 
 # Synopsis
-Aggregate code, refine, manipulate and finalize.
+A build automation tool that allows you to aggregate, manipulate, refine and finalize a code base.
 
 # Motivation
-Every time a platform emerges, developers create `build tools` that reflect what they learned from  existing platforms. This often leads to solving old problems that aren't necessarily relevant.
+A build automation tool specifically made for Node.js.
 
 # How it works
-Codesurgon reads files and/or piped input into a buffer. From there you can operate on the buffer. Extract functions or variables, obfuscate, lint/hint, write to disk/stream, etc.
+Codesurgon reads files and/or piped input into an input buffer. The input buffer is the source used to create the output.
 
 # Features
- - Precision extraction of functions or variables by name
+ - Precision extraction of functions or variables from the input buffer
   - Rename extracted items as they are extracted
   - Control the depth at which variables and function are searched for
   - Extract any arbitrary value
@@ -38,7 +38,7 @@ $node mybuildscript.js
 Codesurgeon will appreciate piped input!
 
 ```bash
-$cat myfile1 myfile2 | node mybuildfile.js
+$cat myfile1.js myfile2.js | node mybuildfile.js
 ```
 
 ## Synchronous example
@@ -197,7 +197,16 @@ Read one or more files from disk.
 ```
   function read(file [, file, ...])
   
-  @files file {String} a string that represent the locations of a file.
+  @param file {String} a string that represent the locations of a file.
+```
+
+### clear()
+Provides the means to clear the input and or output buffers before the next read and write.
+
+```
+  function clear(option)
+  
+  @param option {String} A string that identifies the buffer to be cleared.
 ```
 
 ### wrap()
