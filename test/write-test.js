@@ -33,7 +33,7 @@ module.exports = write({
         quiet: true, 
         package: __dirname + '/../package.json' 
       })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract('test5')
       .write(__dirname + '/output/write-test-output.js')
     ;
@@ -59,7 +59,7 @@ module.exports = write({
         quiet: true,
         package: __dirname + '/../package.json'
       })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract('exports.hello')
       .wrap()
       .write(__dirname + '/output/write-test-output-wrap.js')
@@ -84,7 +84,7 @@ module.exports = write({
         quiet: true, 
         package: __dirname + '/../package.json' 
       })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract('test6')
       .append(__dirname + '/output/write-test-output.js')
     ;
@@ -110,7 +110,7 @@ module.exports = write({
         quiet: true, 
         package: __dirname + '/../package.json' 
       })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract('test10')
       .append(__dirname + '/output/write-test-output.js', function() { 
 
@@ -137,7 +137,7 @@ module.exports = write({
         quiet: true, 
         package: __dirname + '/../package.json'
       })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract('test5')
       .uglify()
       .write(__dirname + '/output/write-test-output-uglifyd.js')
@@ -165,7 +165,7 @@ module.exports = write({
         quiet: true, 
         package: __dirname + '/../package.json'
       })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract()
       .write(__dirname + '/output/write-test-output-broad.js')
     ;

@@ -28,7 +28,7 @@ module.exports = write({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract(
         'NODEJITSU.B', 
         'NODEJITSU.B.prototype.p'
@@ -46,7 +46,7 @@ module.exports = write({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract(
         'NODEJITSU.B', 
         'NODEJITSU.B.prototype.q'
@@ -64,7 +64,7 @@ module.exports = write({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract(
         'NODEJITSU.B', 
         'NODEJITSU.B.prototype.p'
@@ -82,7 +82,7 @@ module.exports = write({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
       .extract(
         'NODEJITSU.B', 
         'NODEJITSU.B.prototype.q'
@@ -107,7 +107,7 @@ module.exports = write({
         quiet: true,
         package: __dirname + '/../package.json'
       })
-      .read(__dirname + '/fixture2.js')
+      .read(__dirname + '/fixtures/fixture2.js')
       .extract()
       .validate()
       ;

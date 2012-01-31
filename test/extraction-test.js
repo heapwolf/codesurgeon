@@ -38,7 +38,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -70,7 +70,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -104,7 +104,7 @@ module.exports = extraction({
       //
       // read one, or a couple of files
       //
-      .read(__dirname + '/fixture1.js')
+      .read(__dirname + '/fixtures/fixture1.js')
 
       //
       // get one or more methods from the code that we've read in.
@@ -126,7 +126,7 @@ module.exports = extraction({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/fixture1.js', __dirname + '/fixture2.js')
+      .read(__dirname + '/fixtures/fixture1.js', __dirname + '/fixtures/fixture2.js')
       .extract('test1', 'test12');
 
     vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
@@ -148,7 +148,7 @@ module.exports = extraction({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/fixture1.js', __dirname + '/fixture2.js', function() {
+      .read(__dirname + '/fixtures/fixture1.js', __dirname + '/fixtures/fixture2.js', function() {
 
         this.extract('test1', 'test12');
         
@@ -172,7 +172,7 @@ module.exports = extraction({
 
     surgeon
       .configure({ quiet: true })
-      .read(__dirname + '/fixture1.js', __dirname + '/fixture2.js')
+      .read(__dirname + '/fixtures/fixture1.js', __dirname + '/fixtures/fixture2.js')
       .extract(
         'test1',
         ['test12', 'bazz12'],
@@ -190,7 +190,7 @@ module.exports = extraction({
   '7. Extract the value of an arbitrary key from an object literal.': function(test) {
     
     var surgeon = new Codesurgeon;
-    var file = __dirname + '/fixture6.js';
+    var file = __dirname + '/fixtures/fixture6.js';
 
     surgeon
       .configure({ quiet: true })
