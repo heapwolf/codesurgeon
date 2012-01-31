@@ -2,10 +2,13 @@
 <img src="http://github.com/hij1nx/codesurgeon/raw/master/logo.png">
 
 # Synopsis
-Aggregate code, refine, manipulate and finalize. Codesurgeon approaches the `software build` problem by promoting Node.js programs as `build scripts` and by providing percision extraction.
+Aggregate code, refine, manipulate and finalize.
 
 # Motivation
 Every time a platform emerges, developers create `build tools` that reflect what they learned from  existing platforms. This often leads to solving old problems that aren't necessarily relevant.
+
+# How it works
+Codesurgon reads files and/or piped input into a buffer. From there you can operate on the buffer. Extract functions or variables, obfuscate, lint/hint, write to disk/stream, etc.
 
 # Features
  - Precision extraction of functions or variables by name
@@ -26,10 +29,10 @@ $npm install codesurgeon
 ```
 
 # Usage
-Simply write a javascript file like the example below. And run it. 
+Write a javascript file and run it.
 
 ```bash
-$node mybuildfile.js
+$node mybuildscript.js
 ```
 
 Codesurgeon will appreciate piped input!
