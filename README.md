@@ -12,14 +12,14 @@ Codesurgon reads files and/or piped input into a buffer. The buffer is used as t
 
 # Features
  - Precision extraction of functions or variables from the input buffer
-  - Rename extracted items as they are extracted
+  - Rename functions or variables as they are extracted
   - Control the depth at which variables and function are searched for
   - Extract any arbitrary value
- - Read in multiple files and or piped data into a buffer
- - Hint and or Lint on the buffer of code
- - Automatically wrap the buffer in a closure that can detect the javascript environment
- - Reads your `package.json` to create versioned output filenames and up to date build comments
+ - Read multiple files and piped data to the input buffer
  - Concatenate files and piped data
+ - Automatically wrap the output in a closure that can detect the javascript environment
+ - Hint and or Lint the output
+ - Reads your `package.json` to create versioned output filenames and up to date build comments
  - Chainable and asynchronous APIs
 
 # Installation
