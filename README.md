@@ -8,7 +8,7 @@ A build automation tool that allows you to aggregate, manipulate, refine and fin
 A build automation tool specifically made for Node.js.
 
 # How it works
-Codesurgon reads files and/or piped input into an input buffer. The input buffer is the source used to create the output.
+Codesurgon reads files and/or piped input into a buffer. The buffer is used as the source used to create output.
 
 # Features
  - Precision extraction of functions or variables from the input buffer
@@ -18,7 +18,7 @@ Codesurgon reads files and/or piped input into an input buffer. The input buffer
  - Read in multiple files and or piped data into a buffer
  - Hint and or Lint on the buffer of code
  - Automatically wrap the buffer in a closure that can detect the javascript environment
- - Exploits your `package.json` to create versioned output filenames and up to date build comments
+ - Reads your `package.json` to create versioned output filenames and up to date build comments
  - Concatenate files and piped data
  - Chainable and asynchronous APIs
 
