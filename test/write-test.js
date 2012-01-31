@@ -5,12 +5,22 @@ var fs = require('fs');
 
 module.exports = write({
 
-  setUp: function (callback) {
-    callback();
+  setUp: function (test) {
+    if (typeof test === 'function') {
+      test();
+    }
+    else {
+      test.done();
+    }
   },
 
-  tearDown: function (callback) {
-    callback();
+  tearDown: function (test) {
+    if (typeof test === 'function') {
+      test();
+    }
+    else {
+      test.done();
+    }
   },
 
   '1. Extract a method by `simple` name and write the contents to a new file.': function (test) {
@@ -76,7 +86,7 @@ module.exports = write({
       })
       .read(__dirname + '/fixture1.js')
       .extract('test6')
-      .append('write-test-output.js')
+      .append(__dirname + '/output/write-test-output.js')
     ;
 
     var file = fs.readFileSync(surgeon.newfile, 'utf8');
@@ -102,7 +112,7 @@ module.exports = write({
       })
       .read(__dirname + '/fixture1.js')
       .extract('test10')
-      .append('write-test-output.js', function() { 
+      .append(__dirname + '/output/write-test-output.js', function() { 
 
         var file = fs.readFileSync(this.newfile, 'utf8');
         vm.runInNewContext(file, sandbox, 'sandbox.vm');

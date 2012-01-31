@@ -5,12 +5,22 @@ var vm = require('vm');
 
 module.exports = extraction({
 
-  setUp: function (callback) {
-    callback();
+  setUp: function (test) {
+    if (typeof test === 'function') {
+      test();
+    }
+    else {
+      test.done();
+    }
   },
 
-  tearDown: function (callback) {
-    callback();
+  tearDown: function (test) {
+    if (typeof test === 'function') {
+      test();
+    }
+    else {
+      test.done();
+    }
   },
 
   '1. Extract a method by `simple` name.': function (test) {

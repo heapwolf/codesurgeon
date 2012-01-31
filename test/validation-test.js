@@ -5,12 +5,22 @@ var fs = require('fs');
 
 module.exports = write({
 
-  setUp: function (callback) {
-    callback();
+  setUp: function (test) {
+    if (typeof test === 'function') {
+      test();
+    }
+    else {
+      test.done();
+    }
   },
 
-  tearDown: function (callback) {
-    callback();
+  tearDown: function (test) {
+    if (typeof test === 'function') {
+      test();
+    }
+    else {
+      test.done();
+    }
   },
 
   '1. Lint fail (intentionally).': function (test) {
