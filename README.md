@@ -28,6 +28,10 @@ Codesurgon reads files and/or piped input into a buffer. The buffer is used as t
 $npm install codesurgeon
 ```
 
+# Status
+
+<img src="https://secure.travis-ci.org/hij1nx/codesurgeon.png" alt="build status">
+
 # Usage
 Write a javascript file and run it.
 
