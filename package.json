@@ -16,6 +16,7 @@
     "pkginfo": "*",
     "flatiron": "*",
     "traverse": "0.5.x",
+    "findit": "*",
     "jslint-core": "*",
     "eyes": "*",
     "colors": "*",
