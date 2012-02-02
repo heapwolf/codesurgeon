@@ -71,8 +71,7 @@ Read and write methods can be used asynchronously by adding a callback!
       package: '../package.json'
     })
     .read(
-      '/src1.js',
-      '/src2.js',
+      '/*.js',
       function() { // callback to fire after reading...
 
         //
@@ -192,7 +191,7 @@ Capture package details of a `package.json` file. Used in concert with the `writ
 ```
 
 ### read()
-Read one or more files from disk.
+Read one or more files from disk. Accepts wild cards in the filename, eg. `*-test.js`.
 
 ```
   function read(file [, file, ...])
