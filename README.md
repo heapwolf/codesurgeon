@@ -53,7 +53,7 @@ surgeon
     quiet: true,                  // don't output the status of each task
     package: '../package.json'    // read my package.json and use it for version numbers etc.
   })
-  .read('/src.js')                // add one or more files to add to the buffer
+  .read('/*.js')                  // add one or more files to add to the buffer
   .extract(                       // specify the names in the order we want them to be compiled
     'B',
     'a'
