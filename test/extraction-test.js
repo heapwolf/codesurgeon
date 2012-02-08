@@ -201,6 +201,55 @@ module.exports = extraction({
     test.equal(surgeon.output, 200);
     test.expect(1);
     test.done();
+  },
+
+  '8. Extract everything and then exlude something.': function(test) {
+    
+    var surgeon = new Codesurgeon;
+    var file = __dirname + '/fixtures/fixture7.js';
+
+    var sandbox = {
+      exports: {}
+    };
+
+    surgeon
+      .configure({ quiet: true })
+      .read(file)
+      .extract()
+      .exclude('second')
+      ;
+
+    vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
+
+    test.equal(sandbox.firstFunction(), true, 'The function was extracted and executed correctly.');
+    test.equal(sandbox.lastFunction(), true, 'The function was extracted and executed correctly.');
+    
+    test.expect(2);
+    test.done();
+  },
+
+  '8. Extract something using a pattern.': function(test) {
+    
+    var surgeon = new Codesurgeon;
+    var file = __dirname + '/fixtures/fixture7.js';
+
+    var sandbox = {
+      exports: {}
+    };
+
+    surgeon
+      .configure({ quiet: true })
+      .read(file)
+      .extract()
+      .exclude(/unction/)
+    ;
+
+    vm.runInNewContext(surgeon.output, sandbox, 'sandbox.vm');
+    test.equal(sandbox.second(), true, 'The function was extracted and executed correctly.');
+    
+    test.expect(1);
+    test.done();
   }
+
 });
 

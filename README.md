@@ -232,15 +232,23 @@ Wraps the code in a closure.
   parenthesis e.g. `function(foo, bar, bazz)` where "foo, bar, bazz" is the signature).
 ```
 
-### extract(...methods) // WITHOUT PARAMETERS WILL GET EVERYTHING
-Specifies the methods to extract from the files that have been read. You can specify a simple variable or function name such as `myMethod` or you can be specific about the item you are looking for, e.g. `MyConstructor.prototype.foo`. This is helpful in the case where you have another method named `foo` that might occur beforehand, e.g. `OtherConstructor.prototype.foo`.
+### extract(...names) // WITHOUT PARAMETERS WILL EXTRACT EVERYTHING
+Specifies the names of the items that you would like to extract from the input buffer. You can specify a simple variable or function name such as `myMethod` or you can be specific about the item you are looking for, e.g. `MyConstructor.prototype.foo`. This is helpful in the case where you have another method named `foo` that might occur beforehand, e.g. `OtherConstructor.prototype.foo`.
 
 ```
-  function extract(methods [, methods, ...])
+  function extract(name [, name, ...])
   
-  @param methods {String} a series of strings that represent the methods that can be found in the code that has been read by the `read` method.
+  @param name {String} a series of strings that represent the items that can be found in the code that has been read by the `read` method.
 ```
 
+### exclude(...name) // WITHOUT PARAMETERS WILL EXCLUDE EVERYTHING
+Specifies the names of the items that you would like to exclude from whatever was extracted.
+
+```
+  function exclude(name [, name, ...])
+  
+  @param name {String} a series of strings that represent the items that can be found in the code that has been extracted by the `extract` method.
+```
 
 ### write()
 Write the output to a file.
