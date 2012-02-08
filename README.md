@@ -165,7 +165,7 @@ Contains a closure that is passed the object relevant to the environment. See th
 ## Constructor
 The constructor function provides an instance of the Codesurgen.
 
-### Codesurgeon()
+### Codesurgeon(conf)
 ```
   function Codesurgeon(conf)
   
@@ -176,7 +176,7 @@ The constructor function provides an instance of the Codesurgen.
 
 ## Instance Methods
 
-### configure()
+### configure(conf)
 Allows you to pass configuration settings to the instance, helpful as you chain together methods.
 
 ```
@@ -185,7 +185,7 @@ Allows you to pass configuration settings to the instance, helpful as you chain 
   @param conf {Object} a json object literal that can contain configuration options.
 ```
 
-### package()
+### package(path)
 Capture package details of a `package.json` file. Used in concert with the `write` method. The write method will attempt to read the file and 
 
 ```
@@ -194,7 +194,7 @@ Capture package details of a `package.json` file. Used in concert with the `writ
   @param path {String} a path to a valid `package.json` file.
 ```
 
-### read()
+### read(...files)
 Read one or more files from disk. Accepts wild cards in the filename, eg. `*-foo.js`.
 
 ```
@@ -203,16 +203,16 @@ Read one or more files from disk. Accepts wild cards in the filename, eg. `*-foo
   @param file {String} a string that represent the locations of a file.
 ```
 
-### clear()
+### clear(buffer)
 Provides the means to clear the input and or output buffers before the next read and write.
 
 ```
-  function clear(option)
+  function clear(buffer)
   
-  @param option {String} A string that identifies the buffer to be cleared.
+  @param buffer {String} The buffer to be cleared, `input`, `output` or `both`.
 ```
 
-### wrap()
+### wrap(options)
 Wraps the code in a closure.
 
 ```
@@ -232,7 +232,7 @@ Wraps the code in a closure.
   parenthesis e.g. `function(foo, bar, bazz)` where "foo, bar, bazz" is the signature).
 ```
 
-### extract(...names) // WITHOUT PARAMETERS WILL EXTRACT EVERYTHING
+### extract(...name) // WITHOUT PARAMETERS WILL EXTRACT EVERYTHING
 Specifies the names of the items that you would like to extract from the input buffer. You can specify a simple variable or function name such as `myMethod` or you can be specific about the item you are looking for, e.g. `MyConstructor.prototype.foo`. This is helpful in the case where you have another method named `foo` that might occur beforehand, e.g. `OtherConstructor.prototype.foo`.
 
 ```
