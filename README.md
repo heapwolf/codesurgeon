@@ -250,7 +250,7 @@ Specifies the names of the items that you would like to exclude from whatever wa
   @param name {String} a series of strings that represent the items that can be found in the code that has been extracted by the `extract` method.
 ```
 
-### write()
+### write(file)
 Write the output to a file.
 
 ```
@@ -259,7 +259,7 @@ Write the output to a file.
   @param file {String} a file name that will be created or overwritten.
 ```
 
-### append()
+### append(file)
 Write the output to a file.
 
 ```
@@ -268,7 +268,7 @@ Write the output to a file.
   @file {String} a file name that will be appended to.
 ```
 
-### uglify()
+### uglify(conf)
 Compacts and/or obfuscates the code.
 
 ```
@@ -286,7 +286,7 @@ Compacts and/or obfuscates the code.
     or within the context of an eval call.
 ```
 
-### lint()
+### lint(conf)
 Provides strict javascript validation according to Duglass Crockford's JSLint specification (https://github.com/douglascrockford/JSLint)
 
 ```
