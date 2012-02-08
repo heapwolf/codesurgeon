@@ -195,7 +195,7 @@ Capture package details of a `package.json` file. Used in concert with the `writ
 ```
 
 ### read()
-Read one or more files from disk. Accepts wild cards in the filename, eg. `*-test.js`.
+Read one or more files from disk. Accepts wild cards in the filename, eg. `*-foo.js`.
 
 ```
   function read(file [, file, ...])
@@ -325,7 +325,7 @@ Less Strict javascript validation according to JSHint, a community-driven tool t
   by the parser.
 ```
 
-# Licence
+# License
 (The MIT License)
 
 Copyright (c) 2010 hij1nx <http://www.twitter.com/hij1nx>
