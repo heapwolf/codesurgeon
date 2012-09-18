@@ -172,6 +172,7 @@ The constructor function provides an instance of the Codesurgen.
   @param conf {Object} a json object literal that can contain configuration options.
     @member encoding {String} the encoding that will be used to product the result.
     @member quiet {String} indicate how much logging you want Codesurgen to produce.
+    @member noVersion {Boolean} true if you don't want Codesurgeon to automatically version your output filename.
 ```
 
 ## Instance Methods
