@@ -25,18 +25,15 @@
     "tool"
   ],
   "dependencies": {
-    "uglify-js": "1.0.x",
-    "pkginfo": "*",
-    "flatiron": "*",
-    "traverse": "0.5.x",
-    "findit": "*",
+    "colors": "0.6.x",
+    "eyes": "0.1.x",
+    "findit": "0.1.x",
+    "jshint": "0.5.x",
     "jslint-core": "*",
-    "eyes": "*",
-    "colors": "*",
-    "jshint": "0.5.x"
+    "traverse": "0.5.x",
+    "uglify-js": "1.0.x"
   },
   "devDependencies": {
-    "colors": "0.5.x",
     "nodeunit": "0.6.x"
   },
   "main": "./lib/codesurgeon",
