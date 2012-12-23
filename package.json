@@ -1,7 +1,7 @@
 {
   "name": "codesurgeon",
   "description": "The Node.js build tool",
-  "version": "0.3.4",
+  "version": "0.3.4-1",
   "author": "Nodejitsu Inc <info@nodejitsu.com>",
   "contributors": [
     { "name": "Paolo Fragomeni", "email": "hij1nx@nodejitsu.com" }
