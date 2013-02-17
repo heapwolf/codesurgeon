@@ -7,6 +7,8 @@ $npm install codesurgeon
 
 # EXAMPLES
 
+## Inclusion
+
 ### Input
 ```js
 var a = 10;
@@ -30,6 +32,8 @@ fstream
 ```js
 var b = 11;
 ```
+
+## Exclusion
 
 ### Input
 ```js
