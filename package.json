@@ -1,40 +1,26 @@
 {
   "name": "codesurgeon",
-  "description": "The Node.js build tool",
-  "version": "0.3.4-1",
-  "author": "Nodejitsu Inc <info@nodejitsu.com>",
+  "description": "Filter code",
+  "version": "0.3.5",
+  "author": "Paolo Fragomeni",
   "contributors": [
-    { "name": "Paolo Fragomeni", "email": "hij1nx@nodejitsu.com" }
+    {
+      "name": "Paolo Fragomeni",
+      "email": "paolo@async.ly"
+    }
   ],
   "repository": {
     "type": "git",
     "url": "http://github.com/hij1nx/codesurgeon.git" 
   },
   "keywords": [
-    "cli",
-    "deploy",
-    "browser",
-    "minify",
-    "uglify",
     "ast",
-    "build",
-    "unit",
-    "test",
-    "make",
-    "jake",
-    "tool"
+    "build"
   ],
   "dependencies": {
-    "colors": "0.6.x",
-    "eyes": "0.1.x",
-    "findit": "0.1.x",
-    "jshint": "0.5.x",
-    "jslint-core": "*",
-    "traverse": "0.5.x",
-    "uglify-js": "1.0.x"
-  },
-  "devDependencies": {
-    "nodeunit": "0.6.x"
+    "fstream": "*",
+    "esprima": "*",
+    "escodegen": "*"
   },
   "main": "./lib/codesurgeon",
   "scripts": {
