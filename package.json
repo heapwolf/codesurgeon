@@ -18,9 +18,13 @@
     "build"
   ],
   "dependencies": {
-    "fstream": "*",
     "esprima": "*",
     "escodegen": "*"
+  },
+  "devDependencies": {
+    "async": "*",
+    "tap": "*",
+    "fstream": "*"
   },
   "main": "./lib/codesurgeon",
   "scripts": {

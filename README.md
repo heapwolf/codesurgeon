@@ -1,13 +1,27 @@
 # SYNOPSIS
 Build a subset or superset of a code base.
 
-```bash
-$npm install codesurgeon
-```
+# DESCRIPTION
+Rather than breaking apart files at design-time for the purpose of targeted
+distribution, you can break them apart using a filter at build-time. 
+
 
 # EXAMPLES
+As the Javascript file is traversed and syntax is discovered, you will have the
+opportunity to interject, for example:
 
-## Inclusion
+```js
+filter.VariableDeclaration = function(name, item) {
+  if (name === 'foo') return false; 
+};
+```
+
+A filter supports a streaming style API, though some operations block processing 
+in some scenarios.
+
+## Inclusion & Exclusion
+An example where only the variable `b` is included in the output. The reverse
+can be done by specifying the exclude option: `{ exclude: ['a', 'b'] }`.
 
 ### Input
 ```js
@@ -33,32 +47,54 @@ fstream
 var b = 11;
 ```
 
-## Exclusion
+# Syntax Reference
 
-### Input
-```js
-var a = 10;
-var b = 11;
-var c = 12;
-```
-
-### Code file
-```js
-var filter = require('codesurgeon');
-var opts = { exclude: ['b'] };
-
-fstream
-  .Reader('example.js')
-  .pipe(filter(opts))
-  .pipe(process.stdout)
-;
-```
-
-### Output
-```js
-var a = 10;
-var c = 12;
-```
+`AssignmentExpression`
+`ArrayExpression`
+`ArrayPattern`
+`BlockStatement`
+`BinaryExpression`
+`BreakStatement`
+`CallExpression`
+`CatchClause`
+`ComprehensionBlock`
+`ComprehensionExpression`
+`ConditionalExpression`
+`ContinueStatement`
+`DirectiveStatement`
+`DoWhileStatement`
+`DebuggerStatement`
+`EmptyStatement`
+`ExpressionStatement`
+`ForStatement`
+`ForInStatement`
+`FunctionDeclaration`
+`FunctionExpression`
+`Identifier`
+`IfStatement`
+`Literal`
+`LabeledStatement`
+`LogicalExpression`
+`MemberExpression`
+`NewExpression`
+`ObjectExpression`
+`ObjectPattern`
+`Program`
+`Property`
+`ReturnStatement`
+`SequenceExpression`
+`SwitchStatement`
+`SwitchCase`
+`ThisExpression`
+`ThrowStatement`
+`TryStatement`
+`UnaryExpression`
+`UpdateExpression`
+`VariableDeclaration`
+`VariableDeclarator`
+`WhileStatement`
+`WithStatement`
+`YieldExpression`
 
 # LICENSE
 (The MIT License)
