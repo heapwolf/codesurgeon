@@ -12,9 +12,9 @@ opportunity to interject, for example:
 
 ### Input
 ```js
-var a = 10;
-var b = 11;
-var c = 12;
+var a = 10
+var b = 11
+var c = 12
 ```
 
 ### Code
@@ -40,7 +40,7 @@ fstream
 
 ### Output
 ```js
-var b = 11;
+var b = 11
 ```
 
 A filter supports a streaming style API, but most operations block processing so
