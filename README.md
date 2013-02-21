@@ -10,19 +10,6 @@ distribution, you can break them apart using a filter at build-time.
 As the Javascript file is traversed and syntax is discovered, you will have the
 opportunity to interject, for example:
 
-```js
-filter.VariableDeclaration = function(name, item) {
-  if (name === 'foo') return false; 
-};
-```
-
-A filter supports a streaming style API, though some operations block processing 
-in some scenarios.
-
-## Inclusion & Exclusion
-An example where only the variable `b` is included in the output. The reverse
-can be done by specifying the exclude option: `{ exclude: ['a', 'b'] }`.
-
 ### Input
 ```js
 var a = 10;
@@ -30,22 +17,34 @@ var b = 11;
 var c = 12;
 ```
 
-### Code file
+### Code
+
 ```js
-var filter = require('codesurgeon');
-var opts = { include: ['b'] };
+var cs = require('codesurgeon')
+
+var filter = cs.filter()
+
+filter.inclusive = true
+
+filter.syntax.VariableDeclaration = function(name, item) {
+  if (name === 'b') {
+    return true
+  }
+}
 
 fstream
   .Reader('example.js')
-  .pipe(filter(opts))
+  .pipe(filter)
   .pipe(process.stdout)
-;
 ```
 
 ### Output
 ```js
 var b = 11;
 ```
+
+A filter supports a streaming style API, but most operations block processing so
+this is purely for convenience.
 
 # Syntax Reference
 
