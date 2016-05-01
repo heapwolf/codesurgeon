@@ -1,3 +1,7 @@
+# DEPRECATED
+
+You should use Facebook's module -- https://github.com/facebook/jscodeshift
+
 # SYNOPSIS
 Build a subset or superset of a code base.
 
